@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Tracker Pro</title>
+  <style>
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: "Segoe UI", Arial, sans-serif;
+      }
+
+      body {
+          min-height: 100vh;
+          display: flex;
+          flex-direction: column;
+          background: #fdfdfd;
+      }
+
+      /* Navbar */
+      .navbar {
+          background: linear-gradient(90deg, #ff5c35, #ff784f);
+          color: white;
+          padding: 15px 30px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+      }
+
+      .navbar .logo {
+          display: flex;
+          align-items: center;
+      }
+
+      .navbar .logo img {
+          width: 32px;
+          height: 32px;
+          margin-right: 10px;
+      }
+
+      .navbar .logo-text {
+          font-size: 20px;
+          font-weight: bold;
+          letter-spacing: 0.5px;
+      }
+
+      .user-info {
+          display: flex;
+          align-items: center;
+          gap: 15px;
+          color: white;
+      }
+
+      .user-name {
+          font-weight: bold;
+      }
+
+      .navbar .logout {
+          background: white;
+          color: #ff5c35;
+          border: none;
+          padding: 8px 16px;
+          border-radius: 8px;
+          font-weight: bold;
+          cursor: pointer;
+          transition: 0.3s ease;
+      }
+
+      .navbar .logout:hover {
+          background: #ffe2dc;
+      }
+
+      /* Content */
+      .content {
+          flex: 1;
+          padding: 50px 20px;
+          text-align: center;
+      }
+
+      .welcome-text {
+          font-size: 30px;
+          margin-bottom: 15px;
+          color: #333;
+      }
+
+      .content p {
+          font-size: 16px;
+          color: #555;
+          max-width: 650px;
+          margin: 0 auto 40px;
+      }
+
+      /* Cards */
+      .card-container {
+          display: flex;
+          gap: 25px;
+          justify-content: center;
+          flex-wrap: wrap;
+      }
+
+      .card {
+          background: white;
+          padding: 25px;
+          border-radius: 15px;
+          box-shadow: 0px 6px 16px rgba(0,0,0,0.08);
+          width: 260px;
+          text-align: center;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          cursor: pointer;
+          text-decoration: none;
+          color: inherit;
+      }
+
+      .card:hover {
+          transform: translateY(-8px);
+          box-shadow: 0px 12px 24px rgba(0,0,0,0.15);
+      }
+
+      .card h3 {
+          margin-bottom: 12px;
+          font-size: 20px;
+          color: #222;
+      }
+
+      .card p {
+          font-size: 14px;
+          color: #666;
+          margin-bottom: 20px;
+      }
+
+      .card button {
+          background: #ff5c35;
+          color: white;
+          border: none;
+          padding: 10px 20px;
+          border-radius: 8px;
+          cursor: pointer;
+          font-size: 14px;
+          font-weight: bold;
+          transition: background 0.3s ease;
+      }
+
+      .card button:hover {
+          background: #e94d2b;
+      }
+
+      /* Footer */
+      footer {
+          text-align: center;
+          padding: 15px;
+          background: #f3f3f3;
+          font-size: 13px;
+          color: #777;
+          border-top: 1px solid #ddd;
+      }
+
+      .loading {
+          display: none;
+          text-align: center;
+          padding: 20px;
+          color: #666;
+      }
+
+      .error {
+          color: #dc2626;
+          text-align: center;
+          padding: 20px;
+      }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+      <div class="logo">
+          <img src="logo.png" alt="Tracker Pro Logo">
+          <div class="logo-text">Tracker Pro</div>
+      </div>
+      <div class="user-info">
+          <span>Welcome, <span class="user-name">User</span></span>
+          <button class="logout" onclick="handleLogout()">Logout</button>
+      </div>
+  </div>
+
+  <!-- Loading -->
+  <div id="loading" class="loading">
+      <p>Loading dashboard...</p>
+  </div>
+
+  <!-- Error -->
+  <div id="error" class="error" style="display: none;">
+      <p>Failed to load dashboard. Please try again.</p>
+  </div>
+
+  <!-- Content -->
+  <div class="content" id="mainContent" style="display: none;">
+      <h1 class="welcome-text">Welcome to Your Dashboard 🎉</h1>
+      <p>Manage your profile, explore reports, and customize settings — all in one place.</p>
+
+      <!-- Feature cards with links -->
+      <div class="card-container">
+          <div class="card">
+              <h3>👤 Profile</h3>
+              <p>View and edit your account details.</p>
+              <button onclick="alert('Profile feature coming soon!')">Go to Profile</button>
+          </div>
+          <div class="card">
+              <h3>📊 Reports</h3>
+              <p>Check detailed insights and analytics.</p>
+              <button onclick="alert('Reports feature coming soon!')">View Reports</button>
+          </div>
+          <div class="card">
+              <h3>⚙️ Settings</h3>
+              <p>Customize preferences and security.</p>
+              <button onclick="alert('Settings feature coming soon!')">Open Settings</button>
+          </div>
+      </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+      © 2025 Tracker Pro. All rights reserved.
+  </footer>
+
+  <script>
+    const API_BASE_URL = 'http://localhost:8080/api';
+
+    function handleLogout() {
+      localStorage.removeItem('tracker_token');
+      localStorage.removeItem('tracker_user');
+      alert('Logged out successfully!');
+      window.location.href = 'Index.html';
+    }
+
+    async function loadDashboard() {
+      const token = localStorage.getItem('tracker_token');
+      const user = JSON.parse(localStorage.getItem('tracker_user') || 'null');
+      
+      if (!token || !user) {
+        alert('Please login to access this page');
+        window.location.href = 'Index.html';
+        return;
+      }
+
+      const loadingDiv = document.getElementById('loading');
+      const errorDiv = document.getElementById('error');
+      const mainContent = document.getElementById('mainContent');
+      
+      loadingDiv.style.display = 'block';
+      
+      try {
+        // Verify token is still valid
+        const response = await fetch(`${API_BASE_URL}/auth/validate-token`, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          }
+        });
+
+        if (!response.ok) {
+          throw new Error('Token validation failed');
+        }
+
+        const result = await response.json();
+        
+        if (result.success) {
+          // Update user display name
+          const userNameElement = document.querySelector('.user-name');
+          if (userNameElement) {
+            userNameElement.textContent = user.fullName || user.companyEmail || 'User';
+          }
+          
+          // Show main content
+          loadingDiv.style.display = 'none';
+          mainContent.style.display = 'block';
+        } else {
+          throw new Error('Invalid session');
+        }
+      } catch (error) {
+        console.error('Dashboard load error:', error);
+        loadingDiv.style.display = 'none';
+        errorDiv.style.display = 'block';
+        
+        // Clear invalid token and redirect after 3 seconds
+        setTimeout(() => {
+          localStorage.removeItem('tracker_token');
+          localStorage.removeItem('tracker_user');
+          window.location.href = 'Index.html';
+        }, 3000);
+      }
+    }
+
+    // Initialize dashboard on page load
+    document.addEventListener('DOMContentLoaded', loadDashboard);
+  </script>
+
+</body>
+</html>

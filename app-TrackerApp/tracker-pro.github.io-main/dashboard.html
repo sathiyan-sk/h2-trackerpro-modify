@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Tracker Pro</title>
+  <style>
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: "Segoe UI", Arial, sans-serif;
+      }
+
+      body {
+          min-height: 100vh;
+          display: flex;
+          flex-direction: column;
+          background: #fdfdfd;
+      }
+
+      /* Navbar */
+      .navbar {
+          background: linear-gradient(90deg, #ff5c35, #ff784f);
+          color: white;
+          padding: 15px 30px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+      }
+
+      .navbar .logo {
+          display: flex;
+          align-items: center;
+      }
+
+      .navbar .logo img {
+          width: 32px;
+          height: 32px;
+          margin-right: 10px;
+      }
+
+      .navbar .logo-text {
+          font-size: 20px;
+          font-weight: bold;
+          letter-spacing: 0.5px;
+      }
+
+      .navbar .logout {
+          background: white;
+          color: #ff5c35;
+          border: none;
+          padding: 8px 16px;
+          border-radius: 8px;
+          font-weight: bold;
+          cursor: pointer;
+          transition: 0.3s ease;
+      }
+
+      .navbar .logout:hover {
+          background: #ffe2dc;
+      }
+
+      /* Content */
+      .content {
+          flex: 1;
+          padding: 50px 20px;
+          text-align: center;
+      }
+
+      .content h1 {
+          font-size: 30px;
+          margin-bottom: 15px;
+          color: #333;
+      }
+
+      .content p {
+          font-size: 16px;
+          color: #555;
+          max-width: 650px;
+          margin: 0 auto 40px;
+      }
+
+      /* Cards */
+      .card-container {
+          display: flex;
+          gap: 25px;
+          justify-content: center;
+          flex-wrap: wrap;
+      }
+
+      .card {
+          background: white;
+          padding: 25px;
+          border-radius: 15px;
+          box-shadow: 0px 6px 16px rgba(0,0,0,0.08);
+          width: 260px;
+          text-align: center;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          cursor: pointer;
+          text-decoration: none;
+          color: inherit;
+      }
+
+      .card:hover {
+          transform: translateY(-8px);
+          box-shadow: 0px 12px 24px rgba(0,0,0,0.15);
+      }
+
+      .card h3 {
+          margin-bottom: 12px;
+          font-size: 20px;
+          color: #222;
+      }
+
+      .card p {
+          font-size: 14px;
+          color: #666;
+          margin-bottom: 20px;
+      }
+
+      .card button {
+          background: #ff5c35;
+          color: white;
+          border: none;
+          padding: 10px 20px;
+          border-radius: 8px;
+          cursor: pointer;
+          font-size: 14px;
+          font-weight: bold;
+          transition: background 0.3s ease;
+      }
+
+      .card button:hover {
+          background: #e94d2b;
+      }
+
+      /* Footer */
+      footer {
+          text-align: center;
+          padding: 15px;
+          background: #f3f3f3;
+          font-size: 13px;
+          color: #777;
+          border-top: 1px solid #ddd;
+      }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+      <div class="logo">
+          <img src="logo.png" alt="Tracker Pro Logo">
+          <div class="logo-text">Tracker Pro</div>
+      </div>
+      <button class="logout" onclick="window.location.href='register.html'">Logout</button>
+  </div>
+
+  <!-- Content -->
+  <div class="content">
+      <h1>Welcome to Your Dashboard 🎉</h1>
+      <p>Manage your profile, explore reports, and customize settings — all in one place.</p>
+
+      <!-- Feature cards with links -->
+      <div class="card-container">
+          <a href="profile.html" class="card">
+              <h3>👤 Profile</h3>
+              <p>View and edit your account details.</p>
+              <button>Go to Profile</button>
+          </a>
+          <a href="reports.html" class="card">
+              <h3>📊 Reports</h3>
+              <p>Check detailed insights and analytics.</p>
+              <button>View Reports</button>
+          </a>
+          <a href="settings.html" class="card">
+              <h3>⚙️ Settings</h3>
+              <p>Customize preferences and security.</p>
+              <button>Open Settings</button>
+          </a>
+      </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+      © 2025 Tracker Pro. All rights reserved.
+  </footer>
+</body>
+</html>

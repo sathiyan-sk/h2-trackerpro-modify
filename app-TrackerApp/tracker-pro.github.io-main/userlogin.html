@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Created | Tracker Pro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+        main {
+            max-width: 500px;
+            width: 100%;
+        }
+        .logo {
+            margin-bottom: 60px;
+        }
+        .badge {
+            margin: 0 auto 40px;
+            width: 120px;
+        }
+        h1 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        p {
+            font-size: 18px;
+            color: #888;
+            margin-bottom: 60px;
+            line-height: 1.5;
+        }
+        button {
+            background-color: #ff5c33;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 15px 40px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #e64d29;
+        }
+        
+        @media (max-width: 500px) {
+            .badge {
+                width: 100px;
+                margin-bottom: 30px;
+            }
+            h1 {
+                font-size: 24px;
+            }
+            p {
+                font-size: 16px;
+                margin-bottom: 40px;
+            }
+            button {
+                padding: 12px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <!-- Logo -->
+        <svg class="logo" width="180" height="50" viewBox="0 0 180 50">
+            <g transform="translate(40, 25)">
+                <!-- Colorful Logo Icon -->
+                <path d="M15,0 L30,15 L15,30 L0,15 Z" fill="#ff4d4d" transform="rotate(45, 15, 15)"/>
+                <path d="M15,0 L30,15 L15,30 L0,15 Z" fill="#4dff4d" transform="rotate(135, 15, 15)"/>
+                <path d="M15,0 L30,15 L15,30 L0,15 Z" fill="#ffff4d" transform="rotate(225, 15, 15)"/>
+                <path d="M15,0 L30,15 L15,30 L0,15 Z" fill="#4d4dff" transform="rotate(315, 15, 15)"/>
+                <!-- Text -->
+                <text x="45" y="20" font-size="24" font-weight="bold" fill="#333">Tracker Pro</text>
+            </g>
+        </svg>
+
+        <!-- Success Badge -->
+        <svg class="badge" viewBox="0 0 120 120">
+            <circle cx="60" cy="60" r="50" fill="#f0f2ff" />
+            <path d="M60,10 C87.6,10 110,32.4 110,60 C110,87.6 87.6,110 60,110 C32.4,110 10,87.6 10,60 C10,32.4 32.4,10 60,10 Z" 
+                fill="none" stroke="#3aae60" stroke-width="10" />
+            <path d="M35,60 L55,80 L85,45" fill="none" stroke="#3aae60" stroke-width="7" stroke-linecap="round" />
+        </svg>
+
+        <!-- Text Content -->
+        <h1>Account created successfully!</h1>
+        <p>Welcome aboard! Start your success journey with SimpleFlow!</p>
+
+        <!-- Button -->
+        <button>Let's Start!</button>
+    </main>
+</body>
+</html>

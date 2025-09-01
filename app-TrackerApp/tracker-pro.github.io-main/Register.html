@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Register | Tracker Pro</title>
+  <style>
+    :root {
+      --primary-color: #ffcc00;
+      --text-color: #333;
+      --border-color: #ddd;
+      --bg-color: #fff;
+      --shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #f5f6fa;
+    }
+
+    .register-container {
+      display: flex;
+      width: 100%;
+      max-width: 1000px;
+      background: var(--bg-color);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    /* Left Form Section */
+    .register-form-section {
+      flex: 1;
+      padding: 40px;
+    }
+
+    .logo-section {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+      margin-right: 10px;
+    }
+
+    .logo-text {
+      font-size: 22px;
+      font-weight: bold;
+      color: var(--text-color);
+    }
+
+    .form-title {
+      margin-bottom: 25px;
+      font-size: 20px;
+      font-weight: bold;
+      color: var(--text-color);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-group label {
+      margin-bottom: 6px;
+      font-size: 14px;
+      color: var(--text-color);
+    }
+
+    .form-group input {
+      padding: 10px;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    .form-group-full {
+      grid-column: span 2;
+    }
+
+    .signup-button {
+      margin-top: 25px;
+      width: 100%;
+      padding: 12px;
+      background: var(--primary-color);
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      transition: background 0.3s ease;
+    }
+
+    .signup-button:hover {
+      background: #ffdb4d;
+    }
+
+    /* Right Illustration Section */
+    .illustration-section {
+      flex: 1;
+      background: #fafafa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .illustration-section img {
+      max-width: 90%;
+      height: auto;
+    }
+
+    @media(max-width: 768px) {
+      .register-container {
+        flex-direction: column;
+      }
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+      .form-group-full {
+        grid-column: span 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="register-container">
+    
+    <!-- Left Section: Form -->
+    <div class="register-form-section">
+      <div class="logo-section">
+        <img src="logo.png" alt="Tracker Pro Logo" class="logo-icon">
+        <span class="logo-text">Tracker Pro</span>
+      </div>
+
+      <h2 class="form-title">Create your account</h2>
+
+      <form>
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="fullName">Full Name :</label>
+            <input type="text" id="fullName" placeholder="Enter your name.." required>
+          </div>
+          <div class="form-group">
+            <label for="department">Department :</label>
+            <input type="text" id="department" placeholder="HR/faculty/Admin" required>
+          </div>
+          <div class="form-group">
+            <label for="empId">Emp Id :</label>
+            <input type="text" id="empId" placeholder="00012..." required>
+          </div>
+          <div class="form-group">
+            <label for="password">Password :</label>
+            <input type="password" id="password" placeholder="xxxxxxxxxx" required>
+          </div>
+          <div class="form-group">
+            <label for="mobileNo">Mobile No. :</label>
+            <input type="text" id="mobileNo" placeholder="+91-987654321" required>
+          </div>
+          <div class="form-group">
+            <label for="confirmPassword">Confirm Password :</label>
+            <input type="password" id="confirmPassword" placeholder="xxxxxxxxxx" required>
+          </div>
+          
+          <!-- Full width Email Field -->
+          <div class="form-group form-group-full">
+            <label for="companyEmail">Company e-mail :</label>
+            <input type="email" id="companyEmail" placeholder="eg:@zoho.com" required>
+          </div>
+        </div>
+
+        <!-- Redirect to Success -->
+        <button type="button" class="signup-button" onclick="window.location.href='success.html'">
+          Sign up
+        </button>
+      </form>
+    </div>
+
+    <!-- Right Section: Illustration -->
+    <div class="illustration-section">
+      <img src="illustration.png" alt="Illustration">
+    </div>
+  </div>
+</body>
+</html>

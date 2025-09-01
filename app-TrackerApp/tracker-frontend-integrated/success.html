@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Created - Tracker Pro</title>
+    <style>
+        /* Base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            min-height: 100vh;
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        /* Logo at top center */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 120px;
+            margin-bottom: 60px;
+            width: 100%;
+        }
+        
+        .logo {
+            width: 70px;
+            height: 70px;
+            margin-right: 8px;
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: bold;
+            color: #000;
+        }
+        
+        /* Main container */
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 750px;
+            padding: 10px;
+            text-align: center;
+            justify-content: center;
+        }
+        
+        /* Success icon */
+        .success-icon {
+            width: 150px;
+            height: 150px;
+            margin-bottom: 40px;
+        }
+        
+        /* Text content */
+        .success-title {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .success-message {
+            color: #888;
+            font-size: 18px;
+            line-height: 1.5;
+            margin-bottom: 80px;
+        }
+        
+        /* Button */
+        .start-button {
+            padding: 15px 50px;
+            background: #ff5c35;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .start-button:hover {
+            background: #e54b26;
+        }
+        
+        .user-info {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            border-left: 4px solid #ff5c35;
+        }
+        
+        .user-info h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .user-info p {
+            color: #666;
+            margin: 5px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .success-icon {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .success-title {
+                font-size: 24px;
+            }
+            
+            .success-message {
+                font-size: 16px;
+                margin-bottom: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="logo-container">
+        <img src="logo.png" alt="Tracker Pro Logo" class="logo">
+        <div class="logo-text">Tracker Pro</div>
+    </div>
+    
+    <div class="container">
+        <img src="success-icon.png" alt="Success" class="success-icon">
+        
+        <h1 class="success-title">Account created successfully!</h1>
+        
+        <div id="userInfo" class="user-info" style="display: none;">
+            <h3>Registration Details</h3>
+            <p><strong>Name:</strong> <span id="userName"></span></p>
+            <p><strong>Employee ID:</strong> <span id="userEmpId"></span></p>
+            <p><strong>Department:</strong> <span id="userDept"></span></p>
+            <p><strong>Email:</strong> <span id="userEmail"></span></p>
+        </div>
+        
+        <p class="success-message">Welcome aboard! Start your success journey with Tracker Pro!</p>
+        
+        <a href="dashboard.html" class="start-button">Let's Start!</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get user data from localStorage
+            const userData = JSON.parse(localStorage.getItem('tracker_user') || 'null');
+            
+            if (userData) {
+                // Display user information
+                const userInfo = document.getElementById('userInfo');
+                document.getElementById('userName').textContent = userData.fullName || 'N/A';
+                document.getElementById('userEmpId').textContent = userData.empId || 'N/A';
+                document.getElementById('userDept').textContent = userData.department || 'N/A';
+                document.getElementById('userEmail').textContent = userData.companyEmail || 'N/A';
+                
+                userInfo.style.display = 'block';
+            }
+            
+            // Auto-redirect to dashboard after 5 seconds
+            setTimeout(() => {
+                window.location.href = 'dashboard.html';
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
